@@ -4,16 +4,17 @@ include 'db.php';
 
 $title = $_POST['title'];
 $conf_date = $_POST['conf_date'];
-$address = $_POST['address'];
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
 $country = $_POST['country'];
 $get_id = $_GET['conference_id'];
 
 //CREATE
 
 if (isset($_POST['add'])){
-    $sql = ("INSERT INTO conference (title, conf_date, address, country) VALUES (?, ?, ?, ?);");
+    $sql = ("INSERT INTO conference (title, conf_date, latitude, longitude, country) VALUES (?, ?, ?, ?, ?);");
     $query = $pdo->prepare($sql);
-    $query->execute([$title, $conf_date, $address, $country]);
+    $query->execute([$title, $conf_date, $latitude, $longitude, $country]);
     if ($query){
         header("Location: ". $_SERVER['HTTP_REFERER']);
     }
@@ -28,9 +29,9 @@ $result = $sql->fetchAll(PDO::FETCH_OBJ);
 //UPDATE
 
 if (isset($_POST['edit'])) {
-    $sql = ("UPDATE conference SET title=?, conf_date=?, address=?, country=? WHERE conference_id=?;");
+    $sql = ("UPDATE conference SET title=?, conf_date=?, latitude=?, longitude=?, country=? WHERE conference_id=?;");
     $query = $pdo->prepare($sql);
-    $query->execute([$title, $conf_date, $address, $country, $get_id]);
+    $query->execute([$title, $conf_date, $latitude, $longitude, $country, $get_id]);
     if ($query){
         header("Location: ". $_SERVER['HTTP_REFERER']);
     }
