@@ -58,15 +58,42 @@
                                             </div>
                                             <div class="form-group">
                                                 <small>Date</small>
-                                                <input type="text" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
+                                                <input type="date" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <small>Adress</small>
+                                                <div id="googleMap" style="width:100%;height:400px;"></div>
+
+                                                <script>
+                                                    function initMap() {
+                                                        var addressCoords = new google.maps.LatLng(51.508742,-0.120850);
+                                                        var mapProp= {
+                                                            center: addressCoords,
+                                                            zoom:5,
+                                                        };
+                                                        var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                                                        var marker = new google.maps.Marker({
+                                                            position: addressCoords,
+                                                            map: myMap
+                                                        });
+                                                    }
+                                                </script>
+
+                                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
+
                                                 <input type="text" class="form-control" name="address" value="<?php echo $res->address; ?>">
                                             </div>
                                             <div class="form-group">
-                                                <small>Country</small>
-                                                <input type="text" class="form-control" name="country" value="<?php echo $res->country; ?>">
+                                                <div class="form-group">
+                                                    <label for="countries"><small>Country</small></label>
+                                                    <select class="form-control" name="country" id="countries">
+                                                        <option>Ukraine</option>
+                                                        <option>USA</option>
+                                                        <option>UK</option>
+                                                        <option>France</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
                                     </div>
                                     <div class="modal-footer">
@@ -125,7 +152,7 @@
                 </div>
                 <div class="form-group">
                     <small>Date</small>
-                    <input type="text" class="form-control" name="conf_date">
+                    <input type="date" class="form-control" name="conf_date">
                 </div>
                 <div class="form-group">
                     <small>Adress</small>
