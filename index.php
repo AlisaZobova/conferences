@@ -80,7 +80,8 @@
                                                 </script>
 
                                                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
-                                            </div>
+                                            <input type="text" class="form-control"
+                                    </div>
                                             <div class="form-group">
                                                 <div class="form-group">
                                                     <label for="countries"><small>Country</small></label>
@@ -154,11 +155,11 @@
                 </div>
                     <div class="form-group">
                         <small>Latitude</small>
-                        <input type="text" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
+                        <input type="text" class="form-control" name="latitude">
                     </div>
                     <div class="form-group">
                         <small>Longitude</small>
-                        <input type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
+                        <input type="text" class="form-control" name="longitude">
                     </div>
                     <div id="googleMap" style="width:100%;height:400px;"></div>
 
@@ -178,6 +179,7 @@
                     </script>
 
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
+                    <input type="text" class="form-control"
             </div>
             <div class="form-group">
                 <div class="form-group">
