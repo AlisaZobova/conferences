@@ -1,9 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-use Bootstrap as BS;
-
-
-include '..\core\route.php'; ?>
+use Bootstrap as BS;?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,8 +26,7 @@ include '..\core\route.php'; ?>
                 <th>Actions</th>
                 </thead>
                 <tbody>
-                <?php foreach ($result as $res) { ?>
-
+                <?php foreach ($data as $res) { ?>
                 <tr>
                     <td><?php echo $res->title; ?></td>
                     <td><?php echo $res->conf_date; ?></td>

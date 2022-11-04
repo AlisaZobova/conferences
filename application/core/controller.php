@@ -3,6 +3,8 @@
 namespace BaseController;
 use BaseView\View;
 
+require 'view.php';
+
 class Controller {
 
     public $model;

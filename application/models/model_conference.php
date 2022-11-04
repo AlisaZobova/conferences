@@ -1,17 +1,14 @@
 <?php
 
-//use BaseModel\Model;
+namespace MainModel;
 
 use BaseModel\Model;
 use Database\DB;
 
-require '../core/model.php';
-require "../../db.php";
+require realpath(dirname(__FILE__) . '\..\core\model.php');
+require realpath(dirname(__FILE__) . '\..\..\db.php');
 
-//include "../../db.php";
-
-
-class Model_Conference extends Model
+class ModelConference extends Model
 {
     public $get_id;
     public $title;
@@ -33,11 +30,11 @@ class Model_Conference extends Model
         $this->get_id = $_GET['conference_id'];
     }
 
-    public function get_multy()
+    public function get_multi()
     {
         $sql = $this->connection->prepare("SELECT * FROM conference;");
         $sql->execute();
-        $result = $sql->fetchAll(PDO::FETCH_OBJ);
+        $result = $sql->fetchAll(\PDO::FETCH_OBJ);
         return $result;
     }
 
@@ -45,7 +42,7 @@ class Model_Conference extends Model
     {
         $sql = $this->connection->prepare("SELECT * FROM conference WHERE conference_id=?;");
         $sql->execute([$this->get_id]);
-        $result = $sql->fetchAll(PDO::FETCH_OBJ);
+        $result = $sql->fetchAll(\PDO::FETCH_OBJ);
         return $result;
     }
 
@@ -80,3 +77,6 @@ class Model_Conference extends Model
     }
 
 }
+
+//$model = new ModelConference();
+//print_r($model->get_multi());

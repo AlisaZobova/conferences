@@ -2,13 +2,17 @@
 
 namespace MainRoute;
 
+use MainController\Controller_Conference;
+
+require realpath(dirname(__FILE__) . '\..\controllers\controller_conference.php');
+
 class Route
 {
     public $controller;
 
     function __construct()
     {
-        $this->controller = new \Controller_Conference();
+        $this->controller = new Controller_Conference();
     }
 
     function start()
@@ -46,7 +50,7 @@ class Route
         $model_path = "application/models/".$model_file;
         if(file_exists($model_path))
         {
-            include "application/models/".$model_file;
+            require_once "application/models/".$model_file;
         }
 
         // файл с классом контроллера
@@ -54,7 +58,7 @@ class Route
         $controller_path = "application/controllers/".$controller_file;
         if(file_exists($controller_path))
         {
-            include "application/controllers/".$controller_file;
+            require_once "application/controllers/".$controller_file;
         }
         else
         {

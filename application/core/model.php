@@ -5,7 +5,7 @@ namespace BaseModel;
 class Model
 {
 
-    public function get_multy()
+    public function get_multi()
     {
     }
 

@@ -1,12 +1,18 @@
 <?php
 
+namespace MainController;
+
 use BaseController\Controller;
+use MainModel\ModelConference;
+
+require realpath(dirname(__FILE__) . '\..\core\controller.php');
+require realpath(dirname(__FILE__) . '\..\models\model_conference.php');
 
 class Controller_Conference extends Controller
 {
     function __construct()
     {
-        $this->model = new Model_Conference();
+        $this->model = new ModelConference();
         parent::__construct();
     }
 
@@ -24,7 +30,7 @@ class Controller_Conference extends Controller
 
     function index()
     {
-        $data = $this->model->get_multy();
+        $data = $this->model->get_multi();
         $this->view->generate('main_view.php', 'base_view.php', $data);
     }
 

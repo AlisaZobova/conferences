@@ -15,9 +15,9 @@ class View
 //        }
 
 
-        include 'application/views/'.$template_view;
-        include 'application/views/'.$content_view;
-        return $data;
+        require_once 'application/views/'.$template_view;
+//        require_once 'application/views/'.$content_view;
+//        return $data;
 
     }
 }
