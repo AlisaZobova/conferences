@@ -1,9 +1,8 @@
 <?php
 ini_set('display_errors', 1);
 use Bootstrap as BS;
-
-
-include 'foo.php'; ?>
+include 'application/core/route.php'
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,7 +28,8 @@ include 'foo.php'; ?>
                 <th>Actions</th>
                 </thead>
                 <tbody>
-                <?php foreach ($result as $res) { ?>
+
+                <?php foreach ($data as $res) { ?>
 
                 <tr>
                     <td><?php echo $res->title; ?></td>

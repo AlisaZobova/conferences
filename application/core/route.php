@@ -13,19 +13,17 @@ class Route
 
     function start()
     {
-        $action = 'get_multy';
+        $action = 'index';
 
         //CREATE
 
         if (isset($_POST['add'])){
-            // создаем контроллер
             $action = 'create';
         }
 
         //READ
 
         if (isset($_GET['conference_id'])){
-            // создаем контроллер
             $action = 'get';
         }
 
