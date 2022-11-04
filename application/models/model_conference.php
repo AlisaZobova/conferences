@@ -1,8 +1,15 @@
 <?php
 
-include "db.php";
+//use BaseModel\Model;
 
 use BaseModel\Model;
+use Database\DB;
+
+require '../core/model.php';
+require "../../db.php";
+
+//include "../../db.php";
+
 
 class Model_Conference extends Model
 {
@@ -12,9 +19,12 @@ class Model_Conference extends Model
     public $latitude;
     public $longitude;
     public $country;
+    public $connection;
 
     function __construct()
     {
+        $db = new DB();
+        $this->connection = $db->create_pdo();
         $this->title = $_POST['title'];
         $this->conf_date = $_POST['conf_date'];
         $this->latitude = $_POST['latitude'];
@@ -25,7 +35,7 @@ class Model_Conference extends Model
 
     public function get_multy()
     {
-        $sql = $pdo->prepare("SELECT * FROM conference;");
+        $sql = $this->connection->prepare("SELECT * FROM conference;");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_OBJ);
         return $result;
@@ -33,7 +43,7 @@ class Model_Conference extends Model
 
     public function get_data()
     {
-        $sql = $pdo->prepare("SELECT * FROM conference WHERE conference_id=?;");
+        $sql = $this->connection->prepare("SELECT * FROM conference WHERE conference_id=?;");
         $sql->execute([$this->get_id]);
         $result = $sql->fetchAll(PDO::FETCH_OBJ);
         return $result;
@@ -42,7 +52,7 @@ class Model_Conference extends Model
     public function create_data()
     {
         $sql = ("INSERT INTO conference (title, conf_date, latitude, longitude, country) VALUES (?, ?, ?, ?, ?);");
-        $query = $pdo->prepare($sql);
+        $query = $this->connection->prepare($sql);
         $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country]);
 //        if ($query){
 //            header("Location: ". $_SERVER['HTTP_REFERER']);
@@ -52,7 +62,7 @@ class Model_Conference extends Model
     public function update_data()
     {
         $sql = ("UPDATE conference SET title=?, conf_date=?, latitude=?, longitude=?, country=? WHERE conference_id=?;");
-        $query = $pdo->prepare($sql);
+        $query = $this->connection->prepare($sql);
         $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country, $this->get_id]);
 //        if ($query){
 //            header("Location: ". $_SERVER['HTTP_REFERER']);
@@ -62,7 +72,7 @@ class Model_Conference extends Model
     public function delete_data()
     {
         $sql = ("DELETE FROM conference WHERE conference_id=?;");
-        $query = $pdo->prepare($sql);
+        $query = $this->connection->prepare($sql);
         $query->execute([$this->get_id]);
 //        if ($query){
 //            header("Location: ". $_SERVER['HTTP_REFERER']);
