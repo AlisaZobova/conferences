@@ -18,6 +18,7 @@ class Controller_Conference extends Controller
 
     function create()
     {
+        header("Location: ". $_SERVER['HTTP_REFERER']);
         $this->view->generate('create_view.php', 'base_view.php');
         $this->model->create_data();
     }
@@ -36,12 +37,14 @@ class Controller_Conference extends Controller
 
     function update()
     {
+        header("Location: ". $_SERVER['HTTP_REFERER']);
         $this->view->generate('update_view.php', 'base_view.php');
         $this->model->update_data();
     }
 
     function delete()
     {
+        header("Location: ". $_SERVER['HTTP_REFERER']);
         $this->view->generate('delete_view.php', 'base_view.php');
         $this->model->delete_data();
     }

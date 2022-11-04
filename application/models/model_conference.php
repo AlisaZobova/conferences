@@ -51,9 +51,6 @@ class ModelConference extends Model
         $sql = ("INSERT INTO conference (title, conf_date, latitude, longitude, country) VALUES (?, ?, ?, ?, ?);");
         $query = $this->connection->prepare($sql);
         $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country]);
-//        if ($query){
-//            header("Location: ". $_SERVER['HTTP_REFERER']);
-//        }
     }
 
     public function update_data()
@@ -61,9 +58,6 @@ class ModelConference extends Model
         $sql = ("UPDATE conference SET title=?, conf_date=?, latitude=?, longitude=?, country=? WHERE conference_id=?;");
         $query = $this->connection->prepare($sql);
         $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country, $this->get_id]);
-//        if ($query){
-//            header("Location: ". $_SERVER['HTTP_REFERER']);
-//        }
     }
 
     public function delete_data()
@@ -71,12 +65,6 @@ class ModelConference extends Model
         $sql = ("DELETE FROM conference WHERE conference_id=?;");
         $query = $this->connection->prepare($sql);
         $query->execute([$this->get_id]);
-//        if ($query){
-//            header("Location: ". $_SERVER['HTTP_REFERER']);
-//        }
     }
 
 }
-
-//$model = new ModelConference();
-//print_r($model->get_multi());

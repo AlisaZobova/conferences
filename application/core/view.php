@@ -16,7 +16,7 @@ class View
 
 
         require_once 'application/views/'.$template_view;
-//        require_once 'application/views/'.$content_view;
+        require_once 'application/views/'.$content_view;
 //        return $data;
 
     }
