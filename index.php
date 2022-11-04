@@ -1,4 +1,9 @@
-<?php include 'foo.php'; ?>
+<?php
+ini_set('display_errors', 1);
+use Bootstrap as BS;
+
+
+include 'foo.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
