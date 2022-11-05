@@ -17,6 +17,7 @@ class Route
 
     function start()
     {
+
         $action = 'index';
 
         //CREATE
@@ -25,22 +26,28 @@ class Route
             $action = 'create';
         }
 
-        //READ
-
-        if (isset($_GET['read'])){
+        if (isset($_GET['conference_id']))
+        {
             $action = 'get';
-        }
 
-        //UPDATE
+            //READ
 
-        if (isset($_POST['edit'])) {
-            $action = 'update';
-        }
+            if (isset($_GET['read'])){
+                $action = 'get';
+            }
 
-        //DELETE
+            //UPDATE
 
-        if (isset($_POST['delete'])) {
-            $action = 'delete';
+            if (isset($_POST['edit'])) {
+                $action = 'update';
+            }
+
+            //DELETE
+
+            if (isset($_POST['delete'])) {
+                $action = 'delete';
+            }
+
         }
 
         // файл с классом модели

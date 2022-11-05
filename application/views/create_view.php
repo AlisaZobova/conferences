@@ -1,6 +1,6 @@
 <?php include_once 'header.php'; ?>
     <title>Add conference</title>
-    <div class="modal-body" id="create">
+    <div class="container" id="create">
         <h3 style="text-align: center; margin-top: 20px" class="modal-title" id="exampleModalLabel">Add new conference</h3>
         <form action="..\..\core\route.php" method="post">
 

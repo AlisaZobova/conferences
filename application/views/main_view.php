@@ -17,9 +17,9 @@
                     <td><?php echo $res->title; ?></td>
                     <td><?php echo $res->conf_date; ?></td>
                     <td>
-                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-toggle="modal" data-target="#edit<?php echo $res->conference_id; ?>"><i class="fa fa-edit"></i></a>
+                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-target="#edit<?php echo $res->conference_id; ?>"><i class="fa fa-edit"></i></a>
                         <a href="" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>"><i class="fa fa-trash-alt"></i></a>
-                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-toggle="modal" data-target="#read<?php echo $res->conference_id; ?>"><i class="fa fa-info-circle"></i></a>
+                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success"  data-target="#read<?php echo $res->conference_id; ?>"><i class="fa fa-info-circle"></i></a>
                     </td>
                 </tr>
 

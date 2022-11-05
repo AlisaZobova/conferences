@@ -42,7 +42,7 @@ class ModelConference extends Model
     {
         $sql = $this->connection->prepare("SELECT * FROM conference WHERE conference_id=?;");
         $sql->execute([$this->get_id]);
-        $result = $sql->fetchAll(\PDO::FETCH_OBJ);
+        $result = $sql->fetch(\PDO::FETCH_OBJ);
         return $result;
     }
 
