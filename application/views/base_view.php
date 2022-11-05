@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors', 1);
-use Bootstrap as BS;
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,6 +14,8 @@ use Bootstrap as BS;
     <title>Conferences</title>
 </head>
 <body>
+{% block body %}
+{% endblock %}
 <div class="container">
     <div class="row">
         <div class="col-12">

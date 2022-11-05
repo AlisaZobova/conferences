@@ -27,7 +27,7 @@ class Route
 
         //READ
 
-        if (isset($_GET['conference_id'])){
+        if (isset($_GET['read'])){
             $action = 'get';
         }
 
@@ -42,7 +42,6 @@ class Route
         if (isset($_POST['delete'])) {
             $action = 'delete';
         }
-
 
         // файл с классом модели (файла модели может и не быть)
 
@@ -62,7 +61,7 @@ class Route
         }
         else
         {
-            (new Route)->ErrorPage404();
+            $this->ErrorPage404();
         }
 
         if(method_exists($this->controller, $action))
@@ -73,7 +72,7 @@ class Route
         else
         {
             // здесь также разумнее было бы кинуть исключение
-            (new Route)->ErrorPage404();
+            $this->ErrorPage404();
         }
 
     }
