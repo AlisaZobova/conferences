@@ -14,8 +14,6 @@ ini_set('display_errors', 1);
     <title>Conferences</title>
 </head>
 <body>
-{% block body %}
-{% endblock %}
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -34,6 +32,7 @@ ini_set('display_errors', 1);
                     <td>
                         <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-toggle="modal" data-target="#edit<?php echo $res->conference_id; ?>"><i class="fa fa-edit"></i></a>
                         <a href="" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>"><i class="fa fa-trash-alt"></i></a>
+                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-toggle="modal" data-target="#read<?php echo $res->conference_id; ?>"><i class="fa fa-info-circle"></i></a>
                     </td>
                 </tr>
                 <!-- Modal edit-->
@@ -81,7 +80,7 @@ ini_set('display_errors', 1);
                                         }
                                     </script>
 
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=%APIKEY%&callback=initMap" defer></script>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
                                     <input type="text" class="form-control"
                             </div>
                             <div class="form-group">
@@ -106,6 +105,88 @@ ini_set('display_errors', 1);
                 </div>
         </div>
         <!-- Modal edit-->
+
+        <!-- Modal read-->
+        <div class="modal fade" id="read<?php echo $res->conference_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="?conference_id=<?php echo $res->conference_id; ?>" method="get">
+                            <div class="form-group">
+                                <small>Title</small>
+                                <input type="text" class="form-control" name="title" value="<?php echo $res->title; ?>">
+                            </div>
+                            <div class="form-group">
+                                <small>Date</small>
+                                <input type="date" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
+                            </div>
+                            <div class="form-group">
+                                <small>Latitude</small>
+                                <input type="text" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
+                            </div>
+                            <div class="form-group">
+                                <small>Longitude</small>
+                                <input type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
+                            </div>
+                            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+                            <script>
+                                function initMap() {
+                                    var addressCoords = new google.maps.LatLng(51.509865,-0.118092);
+                                    var mapProp= {
+                                        center: addressCoords,
+                                        zoom:5,
+                                    };
+                                    var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                                    var marker = new google.maps.Marker({
+                                        position: addressCoords,
+                                        map: myMap
+                                    });
+                                }
+                            </script>
+
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
+                            <input type="text" class="form-control"
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="countries"><small>Country</small></label>
+                            <select class="form-control" name="country" id="countries">
+                                <option>Ukraine</option>
+                                <option>USA</option>
+                                <option>UK</option>
+                                <option>France</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                    <button type="submit" class="btn btn-primary" name="read">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal read-->
+
+<!--    <script>-->
+<!--        document.addEventListener('DOMContentLoaded', () => {-->
+<!--            const rows = document.querySelectorAll("td[data-href]");-->
+<!--            rows.forEach(row => {-->
+<!--                row.addEventListener('click', () => {-->
+<!--                    window.location.href = row.dataset.href;-->
+<!--                })-->
+<!--            })-->
+<!--        })-->
+<!--    </script>-->
 
         <!-- Modal delete-->
         <div class="modal fade" id="delete<?php echo $res->conference_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,6 +286,9 @@ ini_set('display_errors', 1);
 </div>
 </div>
 <!-- Modal create-->
+
+
+
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
