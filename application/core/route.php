@@ -43,7 +43,7 @@ class Route
             $action = 'delete';
         }
 
-        // файл с классом модели (файла модели может и не быть)
+        // файл с классом модели
 
         $model_file = 'model_conference.php';
         $model_path = "application/models/".$model_file;
