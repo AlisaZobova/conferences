@@ -20,11 +20,10 @@
                         <td onclick="window.location.href = '?conference_id=<?php echo $res->conference_id; ?>';"><?php echo $res->conf_date; ?></td>
                         <td>
                             <a href="" class="btn btn-danger" data-toggle="modal"
-                               data-target="#delete<?php echo $res->conference_id; ?>"><i
-                                        class="fa fa-trash-alt"></i></a>
+                               data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
                         </td>
                     </tr>
-                    <?php include_once 'delete_view.php' ?>
+                    <?php include 'delete_view.php' ?>
                 <?php } ?>
                 </tbody>
             </table>
