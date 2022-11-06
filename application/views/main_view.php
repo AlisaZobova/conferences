@@ -17,33 +17,11 @@
                     <td><?php echo $res->title; ?></td>
                     <td><?php echo $res->conf_date; ?></td>
                     <td>
-                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-target="#edit<?php echo $res->conference_id; ?>"><i class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>"><i class="fa fa-trash-alt"></i></a>
-                        <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success"  data-target="#read<?php echo $res->conference_id; ?>"><i class="fa fa-info-circle"></i></a>
+                        <a href="?edit=true&conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success" data-target="#edit<?php echo $res->conference_id; ?>"><i class="fa fa-edit"></i></a>
+                        <a onclick="location.href='application/views/delete_view.php?conference_id=<?php echo $res->conference_id; ?>'" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>"><i class="fa fa-trash-alt"></i></a>
+                        <a href="?read=true&conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success"  data-target="#read<?php echo $res->conference_id; ?>"><i class="fa fa-info-circle"></i></a>
                     </td>
                 </tr>
-
-    <!-- Modal delete-->
-    <div class="modal fade" id="delete<?php echo $res->conference_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete conference № <?php echo $res->conference_id; ?></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <form action="?conference_id=<?php echo $res->conference_id; ?>" method="post">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                        <button type="submit" class="btn btn-danger" name="delete">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal delete-->
-
     <?php } ?>
     </tbody>
     </table>
