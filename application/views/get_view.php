@@ -2,65 +2,44 @@
 
 <?php $res = $data ?>
 
-<title>Conference <?php echo $res->title; ?></title>
-                <div class="container" id="read<?php echo $res->conference_id; ?>">
-                    <form action="?conference_id=<?php echo $res->conference_id; ?>" method="get">
-                        <div class="form-group">
-                            <small>Title</small>
-                            <input type="text" class="form-control" name="title" value="<?php echo $res->title; ?>">
-                        </div>
-                        <div class="form-group">
-                            <small>Date</small>
-                            <input type="date" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
-                        </div>
-                        <div class="form-group">
-                            <small>Latitude</small>
-                            <input type="text" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
-                        </div>
-                        <div class="form-group">
-                            <small>Longitude</small>
-                            <input type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
-                        </div>
-                        <div id="googleMap" style="width:100%;height:400px;"></div>
-
-                        <script>
-                            function initMap() {
-                                var addressCoords = new google.maps.LatLng(51.509865,-0.118092);
-                                var mapProp= {
-                                    center: addressCoords,
-                                    zoom:5,
-                                };
-                                var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                                var marker = new google.maps.Marker({
-                                    position: addressCoords,
-                                    map: myMap
-                                });
-                            }
-                        </script>
-
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
-                        <input type="text" class="form-control"
-                </div>
+    <title>Conference <?php echo $res->title; ?></title>
+    <div class="container" id="read<?php echo $res->conference_id; ?>">
+        <form action="?conference_id=<?php echo $res->conference_id; ?>" method="post">
+            <div class="form-group">
+                <table class="table table-striped table-hover mt-2">
+                    <thead class="thead-dark">
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Country</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><?php echo $res->title; ?></td>
+                        <td><?php echo $res->conf_date; ?></td>
+                        <td><?php echo $res->country; ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <?php if ($res->latitude && $res->longitude) { ?>
                 <div class="form-group">
-                    <div class="form-group">
-                        <label for="countries"><small>Country</small></label>
-                        <select class="form-control" name="country" id="countries">
-                            <option>Ukraine</option>
-                            <option>USA</option>
-                            <option>UK</option>
-                            <option>France</option>
-                        </select>
-                    </div>
+                    <div id="googleMap" style="width:100%;height:400px;"></div>
+                    <script type="text/javascript" src="../../js/map.js"></script>
 
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap"
+                            defer></script>
                 </div>
+            <?php } ?>
+            <div class="form-group">
+                <button type="button" style="float: right; margin-left: 5px;" class="btn btn-secondary"><a
+                            style="text-decoration:none; color: white" href="/conferences">Back</a>
+                </button>
+                <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="edit">
+                    Edit
+                </button>
+                <a href="" style="float: right;" class="btn btn-danger" data-toggle="modal"
+                   data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a style="text-decoration:none; color: white" href="/conferences">Back</a></button>
-                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
-                </form>
-            </div>
-        </div>
-    </div>
     </div>
 
 <?php include_once 'delete_view.php'; ?>
