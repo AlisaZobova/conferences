@@ -14,13 +14,21 @@ function initMap() {
         draggable: true
     });
 
-    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        document.getElementById('cur-lat').innerHTML = '<input type="text" value="'+ evt.latLng.lat().toFixed(3) + '">';
-    });
+    if (document.getElementById('read'))
+    {
+        myMarker['draggable'] = false;
+    }
 
-    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        document.getElementById('cur-long').innerHTML = '<input type="text" value="'+ evt.latLng.lng().toFixed(3) + '">';
-    });
+    else
+    {
+        google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+            document.getElementById('cur-lat').innerHTML = '<input type="text" value="'+ evt.latLng.lat().toFixed(3) + '">';
+        });
+
+        google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+            document.getElementById('cur-long').innerHTML = '<input type="text" value="'+ evt.latLng.lng().toFixed(3) + '">';
+        });
+    }
 
     map.setCenter(myMarker.position);
     myMarker.setMap(map);
