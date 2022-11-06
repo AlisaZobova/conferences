@@ -11,12 +11,13 @@
 
         <div class="form-group">
             <small>Title</small>
-            <input type="text" class="form-control" name="title" minlength="2" maxlength="255"
+            <input type="text" required="required" class="form-control" name="title" minlength="2" maxlength="255"
                    value="<?php echo $res->title; ?>">
         </div>
         <div class="form-group">
             <small>Date</small>
-            <input type="date" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
+            <input type="date" required="required" class="form-control" name="conf_date"
+                   value="<?php echo $res->conf_date; ?>">
         </div>
         <div class="form-group">
             <small>Latitude</small>
