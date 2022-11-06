@@ -1,21 +1,25 @@
 function initMap() {
+
+    lat = parseFloat(document.getElementById('latitude').value);
+    long = parseFloat(document.getElementById('longitude').value);
+
     var map = new google.maps.Map(document.getElementById('googleMap'), {
-        zoom: 1,
-        center: new google.maps.LatLng(35.137879, -82.836914),
+        zoom: 5,
+        center: new google.maps.LatLng(lat, long),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     var myMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(47.651968, 9.478485),
+        position: new google.maps.LatLng(lat, long),
         draggable: true
     });
 
     google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        document.getElementById('latitude').innerHTML = '<input type="text" value="'+ evt.latLng.lat().toFixed(3) + '">';
+        document.getElementById('cur-lat').innerHTML = '<input type="text" value="'+ evt.latLng.lat().toFixed(3) + '">';
     });
 
     google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        document.getElementById('longitude').innerHTML = '<input type="text" value="'+ evt.latLng.lng().toFixed(3) + '">';
+        document.getElementById('cur-long').innerHTML = '<input type="text" value="'+ evt.latLng.lng().toFixed(3) + '">';
     });
 
     map.setCenter(myMarker.position);
