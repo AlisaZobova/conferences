@@ -19,14 +19,14 @@ function initMap() {
         });
 
         if (document.getElementById('read')) {
-            myMarker['draggable'] = false;
+            myMarker.draggable = false;
         } else {
             google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-                document.getElementById('cur-latitude').innerHTML = '<input type="text" value="' + evt.latLng.lat().toFixed(3) + '">';
+                document.getElementById('latitude').value = evt.latLng.lat().toFixed(3);
             });
 
             google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-                document.getElementById('cur-long').innerHTML = '<input type="text" value="' + evt.latLng.lng().toFixed(3) + '">';
+                document.getElementById('longitude').value = evt.latLng.lng().toFixed(3);
             });
         }
         map.setCenter(myMarker.position);

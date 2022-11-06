@@ -22,12 +22,10 @@
         <div class="form-group">
             <small>Latitude</small>
             <input id="latitude" type="text" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
-            <div id="cur-lat"></div>
         </div>
         <div class="form-group">
             <small>Longitude</small>
             <input id="longitude" type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
-            <div id="cur-long"></div>
         </div>
         <div class="form-group">
             <div id="googleMap" style="width:100%;height:400px;"></div>
