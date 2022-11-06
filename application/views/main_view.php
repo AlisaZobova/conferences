@@ -11,23 +11,17 @@
                 <thead class="thead-dark">
                 <th>Title</th>
                 <th>Date</th>
-                <th>Actions</th>
+                <th></th>
                 </thead>
                 <tbody>
                 <?php foreach ($data as $res) { ?>
                     <tr>
-                        <td><?php echo $res->title; ?></td>
-                        <td><?php echo $res->conf_date; ?></td>
+                        <td onclick="window.location.href = '?conference_id=<?php echo $res->conference_id; ?>';"><?php echo $res->title; ?></td>
+                        <td onclick="window.location.href = '?conference_id=<?php echo $res->conference_id; ?>';"><?php echo $res->conf_date; ?></td>
                         <td>
-                            <a href="?edit=true&conference_id=<?php echo $res->conference_id; ?>"
-                               class="btn btn-success" data-target="#edit<?php echo $res->conference_id; ?>"><i
-                                        class="fa fa-edit"></i></a>
                             <a href="" class="btn btn-danger" data-toggle="modal"
                                data-target="#delete<?php echo $res->conference_id; ?>"><i
                                         class="fa fa-trash-alt"></i></a>
-                            <a href="?conference_id=<?php echo $res->conference_id; ?>" class="btn btn-success"
-                               data-target="#read<?php echo $res->conference_id; ?>"><i
-                                        class="fa fa-info-circle"></i></a>
                         </td>
                     </tr>
                     <?php include_once 'delete_view.php' ?>
