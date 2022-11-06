@@ -2,7 +2,7 @@
 
 <title>Conferences</title>
 
-<div class="container">
+<div id="main" class="container">
     <div class="row">
         <div class="col-12">
             <button class="btn btn-success mt-2" onclick="location.href='application/views/create_view.php'"

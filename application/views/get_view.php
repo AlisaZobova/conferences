@@ -21,12 +21,14 @@
                     </tbody>
                 </table>
             </div>
-    <div class="form-group">
-        <input id="latitude" type="hidden" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
-    </div>
-    <div class="form-group">
-        <input id="longitude" type="hidden" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
-    </div>
+            <div class="form-group">
+                <input id="latitude" type="hidden" class="form-control" name="latitude"
+                       value="<?php echo $res->latitude; ?>">
+            </div>
+            <div class="form-group">
+                <input id="longitude" type="hidden" class="form-control" name="longitude"
+                       value="<?php echo $res->longitude; ?>">
+            </div>
             <?php if ($res->latitude && $res->longitude) { ?>
                 <div class="form-group">
                     <div id="googleMap" style="width:100%;height:400px;"></div>
