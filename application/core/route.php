@@ -26,9 +26,9 @@ class Route
             $action = 'create';
         }
 
+
         if (isset($_GET['conference_id']))
         {
-            $action = 'get';
 
             //READ
 
@@ -36,9 +36,10 @@ class Route
                 $action = 'get';
             }
 
+
             //UPDATE
 
-            if (isset($_POST['edit'])) {
+            if (isset($_POST['edit']) or isset($_GET['edit'])) {
                 $action = 'update';
             }
 
@@ -49,6 +50,7 @@ class Route
             }
 
         }
+
 
         // файл с классом модели
 
