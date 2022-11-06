@@ -1,12 +1,65 @@
 function initMap() {
-    var addressCoords = new google.maps.LatLng(51.509865,-0.118092);
-    var mapProp= {
-        center: addressCoords,
-        zoom:5,
-    };
-    var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    var marker = new google.maps.Marker({
-        position: addressCoords,
-        map: myMap
+    var map = new google.maps.Map(document.getElementById('googleMap'), {
+        zoom: 1,
+        center: new google.maps.LatLng(35.137879, -82.836914),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+
+    var myMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(47.651968, 9.478485),
+        draggable: true
+    });
+
+    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+        document.getElementById('latitude').innerHTML = '<input type="text" value="'+ evt.latLng.lat().toFixed(3) + '">';
+    });
+
+    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+        document.getElementById('longitude').innerHTML = '<input type="text" value="'+ evt.latLng.lng().toFixed(3) + '">';
+    });
+
+    map.setCenter(myMarker.position);
+    myMarker.setMap(map);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var map = new google.maps.Map(document.getElementById('map_canvas'), {
+//     zoom: 1,
+//     center: new google.maps.LatLng(35.137879, -82.836914),
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+// });
+//
+// var myMarker = new google.maps.Marker({
+//     position: new google.maps.LatLng(47.651968, 9.478485),
+//     draggable: true
+// });
+//
+// google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+//     document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+// });
+//
+// google.maps.event.addListener(myMarker, 'dragstart', function (evt) {
+//     document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+// });
+//
+// map.setCenter(myMarker.position);
+// myMarker.setMap(map);
+
+
