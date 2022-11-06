@@ -1,22 +1,25 @@
 <?php include_once 'header.php'; ?>
-<title>Conference <?php echo $data->title; ?></title>
-                <div class="container" id="read<?php echo $data->conference_id; ?>">
-                    <form action="?conference_id=<?php echo $data->conference_id; ?>" method="get">
+
+<?php $res = $data ?>
+
+<title>Conference <?php echo $res->title; ?></title>
+                <div class="container" id="read<?php echo $res->conference_id; ?>">
+                    <form action="?conference_id=<?php echo $res->conference_id; ?>" method="get">
                         <div class="form-group">
                             <small>Title</small>
-                            <input type="text" class="form-control" name="title" value="<?php echo $data->title; ?>">
+                            <input type="text" class="form-control" name="title" value="<?php echo $res->title; ?>">
                         </div>
                         <div class="form-group">
                             <small>Date</small>
-                            <input type="date" class="form-control" name="conf_date" value="<?php echo $data->conf_date; ?>">
+                            <input type="date" class="form-control" name="conf_date" value="<?php echo $res->conf_date; ?>">
                         </div>
                         <div class="form-group">
                             <small>Latitude</small>
-                            <input type="text" class="form-control" name="latitude" value="<?php echo $data->latitude; ?>">
+                            <input type="text" class="form-control" name="latitude" value="<?php echo $res->latitude; ?>">
                         </div>
                         <div class="form-group">
                             <small>Longitude</small>
-                            <input type="text" class="form-control" name="longitude" value="<?php echo $data->longitude; ?>">
+                            <input type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
                         </div>
                         <div id="googleMap" style="width:100%;height:400px;"></div>
 
@@ -52,11 +55,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
-                <button type="submit" class="btn btn-primary" name="read">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a style="text-decoration:none; color: white" href="/conferences">Back</a></button>
+                <a href="" class="btn btn-danger" data-toggle="modal" data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
                 </form>
             </div>
         </div>
     </div>
     </div>
+
+<?php include_once 'delete_view.php'; ?>
+
 <?php include_once 'footer.php'; ?>

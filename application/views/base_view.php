@@ -49,7 +49,7 @@ ini_set('display_errors', 1);
                                 <form action="?conference_id=<?php echo $res->conference_id; ?>" method="post">
                                     <div class="form-group">
                                         <small>Title</small>
-                                        <input type="text" class="form-control" name="title" value="<?php echo $res->title; ?>">
+                                        <input type="text" class="form-control" name="title" minlength="2" maxlength="255" value="<?php echo $res->title; ?>">
                                     </div>
                                     <div class="form-group">
                                         <small>Date</small>
@@ -64,21 +64,7 @@ ini_set('display_errors', 1);
                                         <input type="text" class="form-control" name="longitude" value="<?php echo $res->longitude; ?>">
                                     </div>
                                     <div id="googleMap" style="width:100%;height:400px;"></div>
-
-                                    <script>
-                                        function initMap() {
-                                            var addressCoords = new google.maps.LatLng(51.509865,-0.118092);
-                                            var mapProp= {
-                                                center: addressCoords,
-                                                zoom:5,
-                                            };
-                                            var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                                            var marker = new google.maps.Marker({
-                                                position: addressCoords,
-                                                map: myMap
-                                            });
-                                        }
-                                    </script>
+                                    <script type="text/javascript" src="../../js/map.js"></script>
 
                                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdHNxyeXlU4pvM_S8IZy3d43Bs5-uZ8g&callback=initMap" defer></script>
                                     <input type="text" class="form-control"
@@ -230,11 +216,11 @@ ini_set('display_errors', 1);
                 <form action="" method="post">
                     <div class="form-group">
                         <small>Title</small>
-                        <input type="text" class="form-control" name="title">
+                        <input type="text"  minlength="2" maxlength="255" class="form-control" name="title">
                     </div>
                     <div class="form-group">
                         <small>Date</small>
-                        <input type="date" class="form-control" name="conf_date">
+                        <input type="date" required="required" class="form-control" name="conf_date">
                     </div>
                     <div class="form-group">
                         <small>Latitude</small>

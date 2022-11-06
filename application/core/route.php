@@ -32,10 +32,7 @@ class Route
 
             //READ
 
-            if (isset($_GET['read'])){
-                $action = 'get';
-            }
-
+            $action = 'get';
 
             //UPDATE
 

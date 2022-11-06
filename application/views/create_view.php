@@ -41,7 +41,7 @@
     </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a style="text-decoration:none; color: white" href="/conferences">Back</a></button>
+        <button type="button" class="btn btn-secondary" ><a style="text-decoration:none; color: white" href="/conferences">Back</a></button>
         <button type="submit" class="btn btn-primary" name="add">Save</button>
     </div>
     </div>

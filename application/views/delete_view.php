@@ -2,13 +2,26 @@
 
 <!-- Modal delete-->
 
-    <div class="container">
-        <h3 style="text-align: center; margin-top: 20px" class="modal-title" id="exampleModalLabel">Delete conference № <?php echo $_GET['conference_id']; ?>?</h3>
-        <form action="..\..\core\route.php?conference_id=<?php echo $_GET['conference_id']; ?>" id="delete<?php echo $_GET['conference_id']; ?>" method="post">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"><a style="text-decoration:none; color: white" href="/conferences">Back</a></button>
-            <button type="submit" class="btn btn-danger" name="delete">Delete</button>
-        </form>
+    <div class="modal fade" id="delete<?php echo $res->conference_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete conference № <?php echo $res->conference_id; ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <form action="?conference_id=<?php echo $res->conference_id; ?>" method="post">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                        <button type="submit" class="btn btn-danger" name="delete">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 <!-- Modal delete-->
 
 <?php include_once 'footer.php'; ?>
