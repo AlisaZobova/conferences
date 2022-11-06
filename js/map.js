@@ -3,12 +3,12 @@ function initMap() {
     latitude = parseFloat(document.getElementById('latitude').value);
     long = parseFloat(document.getElementById('longitude').value);
 
-    if (document.getElementById('main') || (document.getElementById('read') && (!latitude && !long))) {
+    if (document.getElementById('read') && (!latitude && !long)) {
         return;
     }
 
     var map = new google.maps.Map(document.getElementById('googleMap'), {
-        zoom: 5,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -32,7 +32,6 @@ function initMap() {
         map.setCenter(myMarker.position);
         myMarker.setMap(map);
 
-        console.log(myMarker.position)
     } else {
         map.setCenter({lat: 49, lng: 32});
     }

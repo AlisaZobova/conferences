@@ -36,7 +36,7 @@ class Route
 
             //UPDATE
 
-            if (isset($_POST['edit']) or isset($_GET['edit'])) {
+            if (isset($_POST['edit'])) {
                 $action = 'update';
             }
 
