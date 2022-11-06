@@ -37,10 +37,11 @@
         <div class="form-group">
             <label for="countries"><small>Country</small></label>
             <select class="form-control" name="country" id="countries">
-                <option>Ukraine</option>
-                <option>USA</option>
-                <option>UK</option>
-                <option>France</option>
+                <option><?php echo $res->country; ?></option>
+                <?php foreach (['Ukraine', 'USA', 'UK', 'France'] as $country) {
+                    if ($country != $res->country){?>
+                        <option><?php echo $country; ?></option>
+                <?php }} ?>
             </select>
         </div>
         <div class="form-group">
