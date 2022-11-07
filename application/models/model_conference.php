@@ -4,6 +4,7 @@ namespace MainModel;
 
 use BaseModel\Model;
 use Database\DB;
+use PDO;
 
 require realpath(dirname(__FILE__) . '\..\core\model.php');
 require realpath(dirname(__FILE__) . '\..\..\db.php');
@@ -34,7 +35,7 @@ class ModelConference extends Model
     {
         $sql = $this->connection->prepare("SELECT * FROM conference;");
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_OBJ);
+        $result = $sql->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
 
@@ -42,7 +43,7 @@ class ModelConference extends Model
     {
         $sql = $this->connection->prepare("SELECT * FROM conference WHERE conference_id=?;");
         $sql->execute([$this->get_id]);
-        $result = $sql->fetch(\PDO::FETCH_OBJ);
+        $result = $sql->fetch(PDO::FETCH_OBJ);
         return $result;
     }
 

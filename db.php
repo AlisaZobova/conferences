@@ -13,14 +13,10 @@ class DB {
 
     function __construct()
     {
-        $this->host = 'localhost';
-        $this->db = 'conferences';
-        $this->user = 'root';
-        $this->pass = '';
-//        $this->host = getenv('HOST');
-//        $this->db = getenv('DB');
-//        $this->user = getenv('USER');
-//        $this->pass = getenv('PASS');
+        $this->host = getenv('HOST');
+        $this->db = getenv('DB');
+        $this->user = getenv('USER');
+        $this->pass = getenv('PASS');
     }
 
     function create_pdo(){
