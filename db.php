@@ -22,8 +22,11 @@ class DB
 
     function create_pdo()
     {
+        include 'config.php';
+
         try {
-            $pdo = new PDO("mysql:host=$this->host; dbname=$this->db", $this->user, $this->pass);
+            $pdo = new PDO("mysql:host=$host; dbname=$db", $user, $pass);
+            echo 'OK';
             return $pdo;
         } catch (PDOException $e) {
             echo 'Database connection error!' . $e->getMessage();
@@ -32,4 +35,3 @@ class DB
     }
 
 }
-
