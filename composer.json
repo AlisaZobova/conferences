@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/conferences",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alisa Zobova",
+      "email": "zobovaalice@gmail.com"
+    }
+  ],
+  "require": {
+  }
+}
