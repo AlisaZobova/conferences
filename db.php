@@ -26,7 +26,6 @@ class DB
 
         try {
             $pdo = new PDO("mysql:host=$host; dbname=$db", $user, $pass);
-            echo 'OK';
             return $pdo;
         } catch (PDOException $e) {
             echo 'Database connection error!' . $e->getMessage();
