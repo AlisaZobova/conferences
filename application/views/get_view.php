@@ -36,14 +36,19 @@
                 </div>
             <?php } ?>
             <div class="form-group">
-                <button type="button" style="float: right; margin-left: 5px;" class="btn btn-secondary"><a
-                            style="text-decoration:none; color: white" href="/conferences">Back</a>
-                </button>
+
                 <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="edit">
                     Edit
                 </button>
-                <a href="" style="float: right;" class="btn btn-danger" data-toggle="modal"
+                <a href="" style="float: right; margin-left: 5px;" class="btn btn-danger" data-toggle="modal"
                    data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
+
+<!--                Optional button for return to the main page-->
+
+                <!--<button type="button" style="float: right; margin-left: 5px;" class="btn btn-secondary"><a
+                            style="text-decoration:none; color: white" href="/conferences">Back</a>
+                </button>-->
+
             </div>
     </div>
 
