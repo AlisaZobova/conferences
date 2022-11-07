@@ -13,9 +13,9 @@
         <?php include_once 'create_update.php' ?>
         <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="edit">Save
         </button>
-            <a href="" style="float: right;" class="btn btn-danger" data-toggle="modal"
-               data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
-        </div>
+        <a href="" style="float: right;" class="btn btn-danger" data-toggle="modal"
+           data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
+</div>
 </div>
 
 <?php include_once 'delete_view.php'; ?>

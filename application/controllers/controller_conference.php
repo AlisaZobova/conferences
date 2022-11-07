@@ -8,7 +8,7 @@ use MainModel\ModelConference;
 require realpath(dirname(__FILE__) . '\..\core\controller.php');
 require realpath(dirname(__FILE__) . '\..\models\model_conference.php');
 
-class Controller_Conference extends Controller
+class ControllerConference extends Controller
 {
     function __construct()
     {
@@ -18,7 +18,7 @@ class Controller_Conference extends Controller
 
     function create()
     {
-        header("Location: ". $_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
         $this->view->generate('create_view.php');
         $this->model->create_data();
     }

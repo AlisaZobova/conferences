@@ -4,7 +4,8 @@ namespace Database;
 
 use PDO, PDOException;
 
-class DB {
+class DB
+{
 
     protected $host;
     protected $db;
@@ -19,12 +20,13 @@ class DB {
         $this->pass = getenv('PASS');
     }
 
-    function create_pdo(){
+    function create_pdo()
+    {
         try {
             $pdo = new PDO("mysql:host=$this->host; dbname=$this->db", $this->user, $this->pass);
             return $pdo;
-        } catch(PDOException $e){
-            echo 'Database connection error!'.$e->getMessage();
+        } catch (PDOException $e) {
+            echo 'Database connection error!' . $e->getMessage();
         }
         return null;
     }

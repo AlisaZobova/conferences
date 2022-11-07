@@ -43,7 +43,7 @@
                 <a href="" style="float: right; margin-left: 5px;" class="btn btn-danger" data-toggle="modal"
                    data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
 
-<!--                Optional button for return to the main page-->
+                <!--                Optional button for return to the main page-->
 
                 <!--<button type="button" style="float: right; margin-left: 5px;" class="btn btn-secondary"><a
                             style="text-decoration:none; color: white" href="/conferences">Back</a>

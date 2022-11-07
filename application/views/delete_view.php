@@ -1,8 +1,9 @@
 <?php include_once 'header.php'; ?>
 
-<!-- Modal delete-->
+    <!-- Modal delete-->
 
-    <div class="modal fade" id="delete<?php echo $res->conference_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="delete<?php echo $res->conference_id; ?>" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -21,7 +22,6 @@
         </div>
     </div>
 
-
-<!-- Modal delete-->
+    <!-- Modal delete-->
 
 <?php include_once 'footer.php'; ?>

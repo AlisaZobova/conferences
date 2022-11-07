@@ -14,7 +14,8 @@
 </div>
 <div class="form-group">
     <small>Longitude</small>
-    <input id="longitude" type="text" class="form-control latlng" name="longitude" value="<?php echo $res->longitude; ?>">
+    <input id="longitude" type="text" class="form-control latlng" name="longitude"
+           value="<?php echo $res->longitude; ?>">
 </div>
 <div class="form-group">
     <div id="googleMap" style="width:100%;height:400px;"></div>

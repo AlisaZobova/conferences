@@ -1,11 +1,13 @@
 <?php
 
 namespace BaseController;
+
 use BaseView\View;
 
 require 'view.php';
 
-class Controller {
+class Controller
+{
 
     public $model;
     public $view;
