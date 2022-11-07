@@ -20,13 +20,19 @@ function initMap() {
             draggable: true
         });
 
-    }
-    else {
+    } else {
         myMarker = new google.maps.Marker({
             position: new google.maps.LatLng(49, 32),
-            draggable: true
+            draggable: true,
+            visible: false
         });
     }
+
+    google.maps.event.addListener(map, 'click', function (event) {
+        myMarker.setPosition(event.latLng);
+        myMarker.visible = true
+        myMarker.map = map;
+    });
 
     if (document.getElementById('read')) {
         myMarker.draggable = false;
