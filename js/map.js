@@ -20,7 +20,8 @@ function initMap() {
             draggable: true
         });
 
-    } else {
+    }
+    else {
         myMarker = new google.maps.Marker({
             position: new google.maps.LatLng(49, 32),
             draggable: true
@@ -48,9 +49,7 @@ function initMap() {
             lng = parseFloat(document.getElementById('longitude').value);
 
             if (!lat || !lng) {
-                console.log("null");
                 myMarker.setMap(null);
-                console.log(myMarker);
                 return
             }
 
