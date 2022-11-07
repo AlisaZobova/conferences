@@ -1,7 +1,8 @@
 <div class="form-group">
     <small>Title</small>
     <input type="text" required="required" class="form-control" name="title" minlength="2" maxlength="255"
-           value="<?php echo $res->title; ?>">
+           value="<?php echo $res->title; ?>" pattern="[A-Z][a-z]*(\s(([A-Z][a-z]*)|([a-z]+))|(\s[0-9]+)*)*"
+           title="The title must start with a capital letter. Can contain words with capital or small letters, as well as numbers.">
 </div>
 <div class="form-group">
     <small>Date</small>
@@ -10,12 +11,16 @@
 </div>
 <div class="form-group">
     <small>Latitude</small>
-    <input id="latitude" type="text" class="form-control latlng" name="latitude" value="<?php echo $res->latitude; ?>">
+    <input id="latitude" type="text" class="form-control latlng" name="latitude" value="<?php echo $res->latitude; ?>"
+           pattern="[-]?[0-9]+([.][0-9]+)?"
+           title="Only whole or real numbers. If the number is real, use a dot as a decimal separator.">
 </div>
 <div class="form-group">
     <small>Longitude</small>
     <input id="longitude" type="text" class="form-control latlng" name="longitude"
-           value="<?php echo $res->longitude; ?>">
+           value="<?php echo $res->longitude; ?>"
+           pattern="[-]?[0-9]+([.][0-9]+)?"
+           title="Only whole or real numbers. If the number is real, use a dot as a decimal separator.">
 </div>
 <div class="form-group">
     <div id="googleMap" style="width:100%;height:400px;"></div>
