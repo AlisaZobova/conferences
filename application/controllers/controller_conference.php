@@ -5,8 +5,8 @@ namespace MainController;
 use BaseController\Controller;
 use MainModel\ModelConference;
 
-require realpath(dirname(__FILE__) . '\..\core\controller.php');
-require realpath(dirname(__FILE__) . '\..\models\model_conference.php');
+require dirname(__FILE__) . '/../core/controller.php';
+require dirname(__FILE__) . '/../models/model_conference.php';
 
 class ControllerConference extends Controller
 {

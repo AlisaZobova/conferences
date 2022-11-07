@@ -6,8 +6,8 @@ use BaseModel\Model;
 use Database\DB;
 use PDO;
 
-require realpath(dirname(__FILE__) . '\..\core\model.php');
-require realpath(dirname(__FILE__) . '\..\..\db.php');
+require dirname(__FILE__) . '/../core/model.php';
+require dirname(__FILE__) . '/../../db.php';
 
 class ModelConference extends Model
 {

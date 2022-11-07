@@ -4,7 +4,7 @@ namespace MainRoute;
 
 use MainController\ControllerConference;
 
-require realpath(dirname(__FILE__) . '\..\controllers\controller_conference.php');
+require dirname(__FILE__) . "/../controllers/controller_conference.php";
 
 class Route
 {
