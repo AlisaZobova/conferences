@@ -15,7 +15,7 @@
     <small>Latitude</small>
     <?php $latitude = !(isset($res)) ? null : $res->latitude; ?>
     <input id="latitude" type="text" class="form-control latlng" name="latitude" value="<?php echo $latitude; ?>"
-           pattern="-?(\d|([1-8][0-9])(\.\d)?)|(90(\.0)?)"
+           pattern="-?(\d|([1-8][0-9])(\.\d+)?)|(90(\.0)?)"
            title="Only whole or real numbers between -90 and 90. If the number is real, use a dot as a decimal separator.">
 </div>
 <div class="form-group">
@@ -23,7 +23,7 @@
     <?php $longitude = !(isset($res)) ? null : $res->longitude; ?>
     <input id="longitude" type="text" class="form-control latlng" name="longitude"
            value="<?php echo $longitude; ?>"
-           pattern="-?(\d|([1-8][0-9])(\.\d)?)|(90(\.0)?)"
+           pattern="-?(\d|([1-8][0-9])(\.\d+)?)|(90(\.0)?)"
            title="Only whole or real numbers between -90 and 90. If the number is real, use a dot as a decimal separator.">
 </div>
 <div class="form-group">
