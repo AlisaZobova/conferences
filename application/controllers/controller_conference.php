@@ -19,37 +19,37 @@ class ControllerConference extends Controller
     function create()
     {
         $this->view->generate('create_view.php');
-        $this->model->create_data();
+        $this->model->createData();
     }
 
     function get()
     {
-        $data = $this->model->get_data();
+        $data = $this->model->getData();
         $this->view->generate('get_view.php', $data);
     }
 
     function index()
     {
-        $data = $this->model->get_multi();
+        $data = $this->model->getMulti();
         $this->view->generate('main_view.php', $data);
     }
 
     function getUpdateView() {
-        $data = $this->model->get_data();
+        $data = $this->model->getData();
         $this->view->generate('update_view.php', $data);
     }
 
     function update()
     {
-        $this->model->update_data();
-        $data = $this->model->get_data();
+        $this->model->updateData();
+        $data = $this->model->getData();
         $this->view->generate('update_view.php', $data);
     }
 
     function delete()
     {
         $this->view->generate('delete_view.php');
-        $this->model->delete_data();
+        $this->model->deleteData();
     }
 
 }

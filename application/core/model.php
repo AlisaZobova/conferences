@@ -5,23 +5,23 @@ namespace BaseModel;
 class Model
 {
 
-    public function get_multi()
+    public function getMulti()
     {
     }
 
-    public function get_data()
+    public function getData()
     {
     }
 
-    public function create_data()
+    public function createData()
     {
     }
 
-    public function update_data()
+    public function updateData()
     {
     }
 
-    public function delete_data()
+    public function deleteData()
     {
     }
 

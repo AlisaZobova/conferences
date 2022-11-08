@@ -11,7 +11,7 @@ require dirname(__FILE__) . '/../../db.php';
 
 class ModelConference extends Model
 {
-    public $get_id;
+    public $getId;
     public $title;
     public $conf_date;
     public $latitude;
@@ -28,10 +28,10 @@ class ModelConference extends Model
         $this->latitude = $_POST['latitude'];
         $this->longitude = $_POST['longitude'];
         $this->country = $_POST['country'];
-        $this->get_id = $_GET['conference_id'];
+        $this->getId = $_GET['conference_id'];
     }
 
-    public function get_multi()
+    public function getMulti()
     {
         $sql = $this->connection->prepare("SELECT * FROM conference;");
         $sql->execute();
@@ -39,33 +39,33 @@ class ModelConference extends Model
         return $result;
     }
 
-    public function get_data()
+    public function getData()
     {
         $sql = $this->connection->prepare("SELECT * FROM conference WHERE conference_id=?;");
-        $sql->execute([$this->get_id]);
+        $sql->execute([$this->getId]);
         $result = $sql->fetch(PDO::FETCH_OBJ);
         return $result;
     }
 
-    public function create_data()
+    public function createData()
     {
         $sql = ("INSERT INTO conference (title, conf_date, latitude, longitude, country) VALUES (?, ?, ?, ?, ?);");
         $query = $this->connection->prepare($sql);
         $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country]);
     }
 
-    public function update_data()
+    public function updateData()
     {
         $sql = ("UPDATE conference SET title=?, conf_date=?, latitude=?, longitude=?, country=? WHERE conference_id=?;");
         $query = $this->connection->prepare($sql);
-        $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country, $this->get_id]);
+        $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country, $this->getId]);
     }
 
-    public function delete_data()
+    public function deleteData()
     {
         $sql = ("DELETE FROM conference WHERE conference_id=?;");
         $query = $this->connection->prepare($sql);
-        $query->execute([$this->get_id]);
+        $query->execute([$this->getId]);
     }
 
 }
