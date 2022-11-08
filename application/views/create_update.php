@@ -1,8 +1,8 @@
-<?php $title = !$res->title ?  null : $res->title;
-$conf_date = !$res->conf_date ?  null : $res->conf_date;
-$latitude = !$res->latitude ?  null : $res->latitude;
-$longitude = !$res->longitude ?  null : $res->longitude;
-$country = !$res->country ?  null : $res->country;
+<?php $title = !$res ?  null : $res->title;
+$conf_date = !$res ?  null : $res->conf_date;
+$latitude = !$res ?  null : $res->latitude;
+$longitude = !$res ?  null : $res->longitude;
+$country = !$res ?  null : $res->country;
 ?>
 
 
