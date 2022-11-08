@@ -14,18 +14,19 @@ class DB
 
     function __construct()
     {
-        $this->host = getenv('HOST');
-        $this->db = getenv('DB');
-        $this->user = getenv('USER');
-        $this->pass = getenv('PASS');
+        include 'config.php';
+
+        $this->host = $host;
+        $this->db = $db;
+        $this->user = $user;
+        $this->pass = $pass;
     }
 
     function create_pdo()
     {
-        include 'config.php';
 
         try {
-            $pdo = new PDO("mysql:host=$host; dbname=$db", $user, $pass);
+            $pdo = new PDO("mysql:host=$this->host; dbname=$this->db", $this->user, $this->pass);
             return $pdo;
         } catch (PDOException $e) {
             echo 'Database connection error!' . $e->getMessage();
