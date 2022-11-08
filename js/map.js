@@ -68,10 +68,13 @@ function initMap() {
                 myMarker.setMap(map);
             }
 
+            myMarker.visible = true
+
             myMarker.setPosition({
                 lat: lat,
                 lng: lng
             });
+
         });
     }
 
