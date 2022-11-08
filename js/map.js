@@ -44,7 +44,7 @@ function initMap() {
             lat.value = evt.latLng.lat().toFixed(3);
         });
 
-        myMarker.addListener(myMarker, 'dragend', function (evt) {
+        myMarker.addListener('dragend', function (evt) {
             lng.value = evt.latLng.lng().toFixed(3);
         });
     }
