@@ -23,6 +23,7 @@ class Route
         //CREATE
 
         if (isset($_POST['add'])) {
+            header("Location: " . $_SERVER['HTTP_REFERER']);
             $action = 'create';
         }
 
@@ -35,6 +36,10 @@ class Route
 
             //UPDATE
 
+            if (isset($_POST['edit-view'])) {
+                $action = 'getUpdateView';
+            }
+
             if (isset($_POST['edit'])) {
                 $action = 'update';
             }
@@ -42,6 +47,7 @@ class Route
             //DELETE
 
             if (isset($_POST['delete'])) {
+                header("Location: /conferences");
                 $action = 'delete';
             }
 

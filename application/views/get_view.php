@@ -37,7 +37,7 @@
             <?php } ?>
             <div class="form-group">
 
-                <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="edit">
+                <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="edit-view">
                     Edit
                 </button>
                 <a href="" style="float: right; margin-left: 5px;" class="btn btn-danger" data-toggle="modal"
