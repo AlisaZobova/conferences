@@ -10,7 +10,7 @@ class Route
 
         $action = 'index';
         $model = '';
-        $controller_name = '';
+        $controllerName = '';
 
         //CREATE
 
@@ -50,7 +50,7 @@ class Route
         if ( !empty($route[1]) )
         {
             $model = substr(ucfirst(strtolower($route[1])), 0, -1);
-            $controller_name = $model;
+            $controllerName = $model;
         }
 
         $modelPath = "application/models/model".$model.".php";
@@ -58,14 +58,14 @@ class Route
             require_once $modelPath;
         }
 
-        $controllerPath = "application/controllers/controller".$controller_name.".php";
+        $controllerPath = "application/controllers/controller".$controllerName.".php";
         if (file_exists($controllerPath)) {
             require_once $controllerPath;
         } else {
             $this->ErrorPage404();
         }
 
-        $controllerClass = "Application\Controllers\Controller".$controller_name;
+        $controllerClass = "Application\Controllers\Controller".$controllerName;
         $controller = new $controllerClass();
 
         if (method_exists($controller, $action)) {
