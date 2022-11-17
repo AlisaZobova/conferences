@@ -3,11 +3,11 @@
 namespace Appllication\Models;
 
 use Application\Core\Model;
-use Database\DB;
+use Application\Database\DB;
 use PDO;
 
 require dirname(__FILE__) . '/../core/model.php';
-require dirname(__FILE__) . '/../../db.php';
+require dirname(__FILE__) . '/../db.php';
 
 class ModelConference extends Model
 {

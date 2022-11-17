@@ -4,8 +4,6 @@ namespace Application\Core;
 
 use Application\Controllers\ControllerConference;
 
-require dirname(__FILE__) . "/../controllers/controllerConference.php";
-
 class Route
 {
     public $controller;
