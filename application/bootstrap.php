@@ -1,8 +1,8 @@
 <?php
 
-namespace Bootstrap;
+namespace Application\Bootstrap;
 
-use MainRoute\Route;
+use Application\Core\Route;
 
 require 'core/route.php';
 

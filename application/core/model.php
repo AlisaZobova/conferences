@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseModel;
+namespace Application\Core;
 
 class Model
 {

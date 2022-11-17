@@ -1,8 +1,8 @@
 <?php
 
-namespace MainRoute;
+namespace Application\Core;
 
-use MainController\ControllerConference;
+use Application\Controllers\ControllerConference;
 
 require dirname(__FILE__) . "/../controllers/controllerConference.php";
 

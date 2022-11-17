@@ -1,8 +1,8 @@
 <?php
 
-namespace BaseController;
+namespace Application\Core;
 
-use BaseView\View;
+use Appllication\Core\View;
 
 require 'view.php';
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace MainModel;
+namespace Appllication\Models;
 
-use BaseModel\Model;
+use Application\Core\Model;
 use Database\DB;
 use PDO;
 

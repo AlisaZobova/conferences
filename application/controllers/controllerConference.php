@@ -1,9 +1,9 @@
 <?php
 
-namespace MainController;
+namespace Application\Controllers;
 
-use BaseController\Controller;
-use MainModel\ModelConference;
+use Application\Core\Controller;
+use Appllication\Models\ModelConference;
 
 require dirname(__FILE__) . '/../core/controller.php';
 require dirname(__FILE__) . '/../models/modelConference.php';
