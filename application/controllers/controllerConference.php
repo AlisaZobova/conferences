@@ -5,9 +5,6 @@ namespace Application\Controllers;
 use Application\Core\Controller;
 use Appllication\Models\ModelConference;
 
-require dirname(__FILE__) . '/../core/controller.php';
-require dirname(__FILE__) . '/../models/modelConference.php';
-
 class ControllerConference extends Controller
 {
     function __construct()

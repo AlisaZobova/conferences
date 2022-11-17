@@ -2,21 +2,15 @@
 
 namespace Application\Core;
 
-use Application\Controllers\ControllerConference;
-
 class Route
 {
-    public $controller;
-
-    function __construct()
-    {
-        $this->controller = new ControllerConference();
-    }
 
     function start()
     {
 
         $action = 'index';
+        $model = '';
+        $controller_name = '';
 
         //CREATE
 
@@ -51,22 +45,31 @@ class Route
 
         }
 
-        $model_file = 'modelConference.php';
-        $model_path = "application/models/" . $model_file;
-        if (file_exists($model_path)) {
-            require_once "application/models/" . $model_file;
+        $route = explode('/', $_SERVER['REQUEST_URI']);
+
+        if ( !empty($route[1]) )
+        {
+            $model = substr(ucfirst(strtolower($route[1])), 0, -1);
+            $controller_name = $model;
         }
 
-        $controller_file = 'controllerConference.php';
-        $controller_path = "application/controllers/" . $controller_file;
-        if (file_exists($controller_path)) {
-            require_once "application/controllers/" . $controller_file;
+        $modelPath = "application/models/model".$model.".php";
+        if (file_exists($modelPath)) {
+            require_once $modelPath;
+        }
+
+        $controllerPath = "application/controllers/controller".$controller_name.".php";
+        if (file_exists($controllerPath)) {
+            require_once $controllerPath;
         } else {
             $this->ErrorPage404();
         }
 
-        if (method_exists($this->controller, $action)) {
-            $this->controller->$action();
+        $controllerClass = "Application\Controllers\Controller".$controller_name;
+        $controller = new $controllerClass();
+
+        if (method_exists($controller, $action)) {
+            $controller->$action();
         } else {
             $this->ErrorPage404();
         }

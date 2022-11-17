@@ -6,7 +6,6 @@ use Application\Core\Model;
 use Application\Database\DB;
 use PDO;
 
-require dirname(__FILE__) . '/../core/model.php';
 require dirname(__FILE__) . '/../db.php';
 
 class ModelConference extends Model
