@@ -15,7 +15,7 @@ class Route
         //CREATE
 
         if (isset($_POST['add'])) {
-            header("Location: " . $_SERVER['HTTP_REFERER']);
+            header("Location: /conferences");
             $action = 'create';
         }
 
