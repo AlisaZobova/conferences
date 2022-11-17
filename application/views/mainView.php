@@ -5,7 +5,7 @@
 <div id="main" class="container">
     <div class="row">
         <div class="col-12">
-            <button class="btn btn-success mt-3 mb-2" onclick="location.href='application/views/create_view.php'"
+            <button class="btn btn-success mt-3 mb-2" onclick="location.href='application/views/createView.php'"
                     data-target="#create"><i class="fa fa-plus"></i> Add new conference
             </button>
             <table class="table table-striped table-hover mt-2">
@@ -24,7 +24,7 @@
                                data-target="#delete<?php echo $res->conference_id; ?>">Delete</a>
                         </td>
                     </tr>
-                    <?php include 'delete_view.php' ?>
+                    <?php include 'deleteView.php' ?>
                 <?php } ?>
                 </tbody>
             </table>

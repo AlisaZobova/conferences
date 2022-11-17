@@ -52,6 +52,6 @@
         </div>
 </div>
 
-<?php include_once 'delete_view.php'; ?>
+<?php include_once 'deleteView.php'; ?>
 
 <?php include_once 'footer.php'; ?>

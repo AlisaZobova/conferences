@@ -10,7 +10,7 @@
     <h3 style="text-align: center; margin-top: 20px" class="modal-title" id="exampleModalLabel">Add new conference</h3>
     <form action="application\core\route.php" method="post">
 
-        <?php include_once 'create_update.php' ?>
+        <?php include_once 'createUpdate.php' ?>
         <button type="submit" style="float: right; margin-left: 5px;" class="btn btn-primary" name="add">Save
         </button>
 </div>

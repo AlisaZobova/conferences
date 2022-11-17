@@ -4,7 +4,7 @@ namespace MainRoute;
 
 use MainController\ControllerConference;
 
-require dirname(__FILE__) . "/../controllers/controller_conference.php";
+require dirname(__FILE__) . "/../controllers/controllerConference.php";
 
 class Route
 {
@@ -53,13 +53,13 @@ class Route
 
         }
 
-        $model_file = 'model_conference.php';
+        $model_file = 'modelConference.php';
         $model_path = "application/models/" . $model_file;
         if (file_exists($model_path)) {
             require_once "application/models/" . $model_file;
         }
 
-        $controller_file = 'controller_conference.php';
+        $controller_file = 'controllerConference.php';
         $controller_path = "application/controllers/" . $controller_file;
         if (file_exists($controller_path)) {
             require_once "application/controllers/" . $controller_file;
