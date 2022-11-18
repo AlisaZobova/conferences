@@ -30,6 +30,7 @@ class ModelConference extends Model
         $this->longitude = $_POST['longitude'];
         $this->country = $_POST['country'];
         $this->getId = $_GET['conference_id'];
+        $this->errors = [];
     }
 
     public function errors()
