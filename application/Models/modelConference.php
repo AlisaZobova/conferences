@@ -52,6 +52,9 @@ class modelConference extends Model
         if (!preg_match('/[A-Z][a-z]*(\s(([A-Z][a-z]*)|([a-z]+))|(\s[0-9]+)*)*/', $this->title)) {
             $this->errors['title'] = 'Not a valid title.';
         }
+        if (strlen($this->title) < 2 || strlen($this->title) > 255) {
+            $this->errors['title'] = 'Too many or too few characters in the title. Should be between 2 and 255.';
+        }
     }
 
     private function validateConfDate()
