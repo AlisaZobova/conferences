@@ -3,13 +3,13 @@
 namespace Appllication\Models;
 
 use Application\Core\Model;
-use Application\Database\DB;
+use Application\DB;
 use PDO;
 
-require dirname(__FILE__) . '/../db.php';
+require dirname(__FILE__) . '/../DB.php';
 
 
-class ModelConference extends Model
+class modelConference extends Model
 {
     public $getId;
     public $title;

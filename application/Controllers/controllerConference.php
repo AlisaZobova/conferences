@@ -5,7 +5,7 @@ namespace Application\Controllers;
 use Application\Core\Controller;
 use Appllication\Models\ModelConference;
 
-class ControllerConference extends Controller
+class controllerConference extends Controller
 {
     public function __construct()
     {

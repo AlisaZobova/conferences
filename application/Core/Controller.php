@@ -4,7 +4,7 @@ namespace Application\Core;
 
 use Appllication\Core\View;
 
-require 'view.php';
+require 'View.php';
 
 class Controller
 {

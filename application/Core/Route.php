@@ -52,21 +52,21 @@ class Route
             $controllerName = $model;
         }
 
-        $modelPath = "application/models/model" . $model . ".php";
+        $modelPath = "application/Models/model" . $model . ".php";
         if (file_exists($modelPath)) {
             require_once $modelPath;
         } else {
             $this->ErrorPage404();
         }
 
-        $controllerPath = "application/controllers/controller" . $controllerName . ".php";
+        $controllerPath = "application/Controllers/controller" . $controllerName . ".php";
         if (file_exists($controllerPath)) {
             require_once $controllerPath;
         } else {
             $this->ErrorPage404();
         }
 
-        $controllerClass = "Application\Controllers\Controller" . $controllerName;
+        $controllerClass = "Application\Controllers\controller" . $controllerName;
         $controller = new $controllerClass();
 
         if (method_exists($controller, $action)) {
