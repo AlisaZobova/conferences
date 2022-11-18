@@ -35,17 +35,14 @@ function initMap() {
         myMarker.setPosition(event.latLng);
         myMarker.visible = true
         myMarker.map = map;
+        setLatLng(event, lat, lng);
     });
 
     if (document.getElementById('read')) {
         myMarker.draggable = false;
     } else {
         myMarker.addListener('dragend', function (evt) {
-            lat.value = evt.latLng.lat().toFixed(3);
-        });
-
-        myMarker.addListener('dragend', function (evt) {
-            lng.value = evt.latLng.lng().toFixed(3);
+            setLatLng(evt, lat, lng);
         });
     }
 
@@ -59,6 +56,11 @@ function initMap() {
 
     map.setCenter(myMarker.position);
     myMarker.setMap(map);
+}
+
+function setLatLng(evt, lat, lng){
+    lat.value = evt.latLng.lat().toFixed(3);
+    lng.value = evt.latLng.lng().toFixed(3);
 }
 
 function setInputValue(lat, lng, myMarker, map) {
