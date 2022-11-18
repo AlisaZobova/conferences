@@ -55,7 +55,7 @@ function initMap() {
         latlng[i].addEventListener('input', function () {
             setInputValue(lat, lng, myMarker, map)
         });
-        }
+    }
 
     map.setCenter(myMarker.position);
     myMarker.setMap(map);

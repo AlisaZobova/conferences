@@ -3,7 +3,8 @@
     <?php $title = !(isset($res)) ? null : $res->title; ?>
     <input type="text" required="required" class="form-control" name="title" minlength="2" maxlength="255"
            value="<?php echo $title; ?>" pattern="[A-Z][a-z]*(\s(([A-Z][a-z]*)|([a-z]+))|(\s[0-9]+)*)*"
-           title="The title must start with a capital letter. Can contain words with capital or small letters, as well as numbers.">
+           title="The title must start with a capital letter. Can contain words with capital or small letters, as well as numbers.
+                 The minimum length is 2 characters, the maximum is 255.">
 </div>
 <div class="form-group">
     <small>Date</small>
