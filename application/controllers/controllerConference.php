@@ -7,43 +7,43 @@ use Appllication\Models\ModelConference;
 
 class ControllerConference extends Controller
 {
-    function __construct()
+    public function __construct()
     {
         $this->model = new ModelConference();
         parent::__construct();
     }
 
-    function create()
+    public function create()
     {
         $this->view->generate('createView.php');
         $this->model->createData();
     }
 
-    function get()
+    public function get()
     {
         $data = $this->model->getData();
         $this->view->generate('getView.php', $data);
     }
 
-    function index()
+    public function index()
     {
         $data = $this->model->getMulti();
         $this->view->generate('mainView.php', $data);
     }
 
-    function getUpdateView() {
+    public function getUpdateView() {
         $data = $this->model->getData();
         $this->view->generate('updateView.php', $data);
     }
 
-    function update()
+    public function update()
     {
         $this->model->updateData();
         $data = $this->model->getData();
         $this->view->generate('updateView.php', $data);
     }
 
-    function delete()
+    public function delete()
     {
         $this->view->generate('deleteView.php');
         $this->model->deleteData();

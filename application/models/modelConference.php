@@ -13,19 +13,19 @@ class ModelConference extends Model
 {
     public $getId;
     public $title;
-    public $conf_date;
+    public $confDate;
     public $latitude;
     public $longitude;
     public $country;
-    public $connection;
+    private $connection;
     private $errors;
 
-    function __construct()
+    public function __construct()
     {
         $db = new DB();
-        $this->connection = $db->create_pdo();
+        $this->connection = $db->createPDO();
         $this->title = $_POST['title'];
-        $this->conf_date = $_POST['conf_date'];
+        $this->confDate = $_POST['conf_date'];
         $this->latitude = $_POST['latitude'];
         $this->longitude = $_POST['longitude'];
         $this->country = $_POST['country'];
@@ -55,11 +55,11 @@ class ModelConference extends Model
 
     private function validateConfDate()
     {
-        if (strtotime($this->conf_date) < strtotime('now')) {
+        if (strtotime($this->confDate) < strtotime('now')) {
             $this->errors['conf_date'] = 'Conference date is less than current.';
         }
 
-        if (!preg_match('/^(2\d{3})-((0\d)|(1[1,2]))-(([0-2]\d)|(3[0,1]))$/', $this->conf_date)) {
+        if (!preg_match('/^(2\d{3})-((0\d)|(1[1,2]))-(([0-2]\d)|(3[0,1]))$/', $this->confDate)) {
             $this->errors['conf_date'] = 'Not a valid date.';
         }
     }
@@ -96,7 +96,7 @@ class ModelConference extends Model
         if ($this->isValid()) {
             $sql = ("INSERT INTO conference (title, conf_date, latitude, longitude, country) VALUES (?, ?, ?, ?, ?);");
             $query = $this->connection->prepare($sql);
-            $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country]);
+            $query->execute([$this->title, $this->confDate, $this->latitude, $this->longitude, $this->country]);
         } else {
             echo "The conference cannot be created because the following data errors are present: ";
             foreach ($this->errors() as $key => $value) {
@@ -110,7 +110,7 @@ class ModelConference extends Model
         if ($this->isValid()) {
             $sql = ("UPDATE conference SET title=?, conf_date=?, latitude=?, longitude=?, country=? WHERE conference_id=?;");
             $query = $this->connection->prepare($sql);
-            $query->execute([$this->title, $this->conf_date, $this->latitude, $this->longitude, $this->country, $this->getId]);
+            $query->execute([$this->title, $this->confDate, $this->latitude, $this->longitude, $this->country, $this->getId]);
         } else {
             echo "The conference cannot be updated because the following data errors are present: ";
             foreach ($this->errors() as $key => $value) {

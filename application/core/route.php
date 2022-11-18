@@ -5,7 +5,7 @@ namespace Application\Core;
 class Route
 {
 
-    function start()
+    public function start()
     {
 
         $action = 'index';
@@ -47,25 +47,26 @@ class Route
 
         $route = explode('/', $_SERVER['REQUEST_URI']);
 
-        if ( !empty($route[1]) )
-        {
+        if (!empty($route[1])) {
             $model = substr(ucfirst(strtolower($route[1])), 0, -1);
             $controllerName = $model;
         }
 
-        $modelPath = "application/models/model".$model.".php";
+        $modelPath = "application/models/model" . $model . ".php";
         if (file_exists($modelPath)) {
             require_once $modelPath;
+        } else {
+            $this->ErrorPage404();
         }
 
-        $controllerPath = "application/controllers/controller".$controllerName.".php";
+        $controllerPath = "application/controllers/controller" . $controllerName . ".php";
         if (file_exists($controllerPath)) {
             require_once $controllerPath;
         } else {
             $this->ErrorPage404();
         }
 
-        $controllerClass = "Application\Controllers\Controller".$controllerName;
+        $controllerClass = "Application\Controllers\Controller" . $controllerName;
         $controller = new $controllerClass();
 
         if (method_exists($controller, $action)) {
@@ -76,7 +77,7 @@ class Route
 
     }
 
-    function ErrorPage404()
+    public function ErrorPage404()
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');

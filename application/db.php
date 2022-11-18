@@ -7,12 +7,12 @@ use PDO, PDOException;
 class DB
 {
 
-    protected $host;
-    protected $db;
-    protected $user;
-    protected $pass;
+    private $host;
+    private $db;
+    private $user;
+    private $pass;
 
-    function __construct()
+    public function __construct()
     {
         include 'config.php';
 
@@ -22,7 +22,7 @@ class DB
         $this->pass = $pass;
     }
 
-    function create_pdo()
+    public function createPDO(): ?PDO
     {
 
         try {

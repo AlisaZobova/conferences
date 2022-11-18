@@ -12,32 +12,32 @@ class Controller
     public $model;
     public $view;
 
-    function __construct()
+    public function __construct()
     {
         $this->view = new View();
     }
 
-    function index()
+    public function index()
     {
 
     }
 
-    function get()
+    public function get()
     {
 
     }
 
-    function create()
+    public function create()
     {
 
     }
 
-    function update()
+    public function update()
     {
 
     }
 
-    function delete()
+    public function delete()
     {
 
     }
